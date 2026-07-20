@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Personal Website Proposal – Office of Fatehsinh ji Chauhan</title>
+<link rel="icon" type="image/x-icon" href="https://devphant.com/images/favicon.ico"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --black:#0A0A0A;--black-2:#111111;--black-3:#1A1A1A;--black-4:#222222;
+  --blue:#4A9EE7;--blue-dim:rgba(74,158,231,0.12);--blue-border:rgba(74,158,231,0.25);
+  --white:#FFFFFF;--white-60:rgba(255,255,255,0.6);--white-10:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.08);--muted:rgba(255,255,255,0.5);
+  --green:#34D399;--purple:#A78BFA;--amber:#FBBF24;--red:#F87171;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes glow-pulse{0%,100%{opacity:.15;}50%{opacity:.3;}}
+@keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(74,158,231,.4);}70%{box-shadow:0 0 0 10px rgba(74,158,231,0);}100%{box-shadow:0 0 0 0 rgba(74,158,231,0);}}
+@keyframes barGrow{from{width:0;}}
+.animate{opacity:0;}
+.animate.visible{animation:fadeUp .55s cubic-bezier(.22,1,.36,1) forwards;}
+.animate.delay-1{animation-delay:.08s;}.animate.delay-2{animation-delay:.16s;}
+.animate.delay-3{animation-delay:.24s;}.animate.delay-4{animation-delay:.32s;}
+
+.topbar{background:var(--black-2);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
+.topbar-logos img{height:28px;display:block;}
+.topbar-right{font-size:12px;color:var(--muted);}
+.topbar-right strong{color:var(--white-60);}
+
+.hero{background:var(--black-2);border-bottom:1px solid var(--border);padding:80px 40px 60px;text-align:center;position:relative;overflow:hidden;}
+.hero-glow{position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:320px;background:radial-gradient(ellipse,rgba(74,158,231,.18) 0%,transparent 70%);pointer-events:none;animation:glow-pulse 4s ease-in-out infinite;}
+.for-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:32px;animation:fadeIn .6s ease both;}
+.for-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-family:'Space Grotesk',sans-serif;}
+.for-sep{width:24px;height:1px;background:var(--border);}
+.client-name{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--white);}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:28px;animation:fadeIn .6s .1s ease both;}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:pulse-ring 2s infinite;}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5.5vw,54px);font-weight:700;line-height:1.15;letter-spacing:-1px;animation:fadeUp .7s .15s cubic-bezier(.22,1,.36,1) both;margin-bottom:14px;}
+.hero h1 .accent{color:var(--blue);}
+.hero-tagline{font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--muted);margin:0 auto 12px;max-width:600px;animation:fadeUp .7s .2s cubic-bezier(.22,1,.36,1) both;line-height:1.65;}
+.hero-url{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--blue);margin-bottom:40px;animation:fadeUp .7s .25s cubic-bezier(.22,1,.36,1) both;}
+.hero-stats{display:inline-flex;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--black-3);animation:fadeUp .7s .3s cubic-bezier(.22,1,.36,1) both;flex-wrap:wrap;}
+.stat-item{padding:20px 28px;text-align:center;border-right:1px solid var(--border);}
+.stat-item:last-child{border-right:none;}
+.stat-value{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--white);line-height:1;margin-bottom:4px;}
+.stat-value em{color:var(--blue);font-style:normal;}
+.stat-label{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-family:'Space Grotesk',sans-serif;}
+
+.container{max-width:900px;margin:0 auto;padding:0 24px;}
+section{padding:56px 0;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,4vw,32px);font-weight:700;color:var(--white);letter-spacing:-.5px;margin-bottom:10px;line-height:1.15;}
+.section-desc{font-size:14px;color:var(--muted);max-width:620px;margin-bottom:32px;line-height:1.75;}
+
+/* WHAT THIS COVERS */
+.covers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.covers-card{background:var(--black-3);border:1px solid var(--border);border-radius:14px;padding:26px 22px;transition:border-color .2s,transform .2s;}
+.covers-card:hover{border-color:var(--blue-border);transform:translateY(-3px);}
+.covers-num{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:1px;margin-bottom:10px;}
+.covers-card h3{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:10px;}
+.covers-card p{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* LANGUAGE STRIP */
+.lang-strip{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;}
+.lang-pill{display:flex;align-items:center;gap:10px;background:var(--blue-dim);border:1px solid var(--blue-border);border-radius:12px;padding:14px 22px;flex:1;min-width:160px;}
+.lang-flag{font-size:20px;}
+.lang-name{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--white);}
+.lang-native{font-size:12px;color:var(--muted);}
+
+/* PAGES TABLE */
+.pages-table{width:100%;border-collapse:collapse;background:var(--black-3);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.pages-table thead tr{background:var(--black-4);border-bottom:1px solid var(--border);}
+.pages-table thead th{font-family:'Space Grotesk',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:12px 20px;text-align:left;}
+.pages-table tbody tr{border-bottom:1px solid var(--border);transition:background .15s;}
+.pages-table tbody tr:last-child{border-bottom:none;}
+.pages-table tbody tr:hover{background:rgba(74,158,231,.04);}
+.pages-table td{padding:15px 20px;vertical-align:top;}
+.page-name{font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:700;color:var(--white);white-space:nowrap;}
+.page-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* PRICING */
+.totals-box{background:var(--black-3);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.total-grand{background:var(--black-4);padding:22px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+.total-label-big{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--white);}
+.excludes-note{font-size:11px;color:var(--muted);display:block;margin-top:3px;}
+.total-val-big{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--white);}
+.total-val-big em{color:var(--blue);font-style:normal;}
+.bifurc-section{padding:6px 24px 10px;}
+.bifurc-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;}
+.bifurc-left{display:flex;align-items:center;gap:12px;flex:1;}
+.bifurc-icon{font-size:15px;flex-shrink:0;}
+.bifurc-name{font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:600;color:var(--white);}
+.bifurc-sub{font-size:12px;color:var(--muted);}
+.bifurc-amt{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--blue);white-space:nowrap;}
+.bifurc-div{height:1px;background:var(--border);margin:2px 0;}
+
+/* INCLUDED TABLE */
+.inc-wrap{background:var(--black-3);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.inc-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);}
+.inc-row:last-child{border-bottom:none;}
+.inc-cell{padding:14px 22px;display:flex;gap:10px;align-items:flex-start;border-right:1px solid var(--border);}
+.inc-cell:last-child{border-right:none;}
+.inc-cell-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;}
+.inc-cell-sub{font-size:12px;color:var(--muted);line-height:1.5;}
+
+/* TIMELINE */
+.tl-wrap{position:relative;padding-left:28px;}
+.tl-wrap::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--blue),rgba(74,158,231,.08));}
+.tl-item{position:relative;margin-bottom:16px;background:var(--black-3);border:1px solid var(--border);border-radius:14px;padding:20px 22px;transition:border-color .2s,transform .2s;}
+.tl-item:hover{border-color:var(--blue-border);transform:translateX(3px);}
+.tl-item::before{content:'';position:absolute;left:-24px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px var(--black),0 0 0 5px rgba(74,158,231,.3);}
+.tl-week{font-family:'Space Grotesk',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:6px;}
+.tl-title{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--white);}
+
+/* CTA */
+.cta-section{background:var(--black-2);border-top:1px solid var(--border);padding:64px 24px;text-align:center;position:relative;overflow:hidden;}
+.cta-glow{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);width:600px;height:280px;background:radial-gradient(ellipse,rgba(74,158,231,.15) 0%,transparent 70%);pointer-events:none;animation:glow-pulse 4s ease-in-out infinite;}
+
+footer{background:var(--black-2);border-top:1px solid var(--border);padding:36px 40px 28px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;}
+footer img{height:22px;opacity:.6;}
+.footer-div{width:40px;height:1px;background:var(--border);}
+footer p{font-size:12px;color:var(--muted);line-height:1.7;}
+footer strong{color:var(--white-60);}
+
+@media(max-width:680px){
+  .topbar{padding:12px 16px;}.hero{padding:44px 16px 36px;}
+  .hero h1{font-size:28px;letter-spacing:-.5px;}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border);}
+  .stat-item:nth-child(odd){border-right:1px solid var(--border);}
+  .container{padding:0 16px;}section{padding:36px 0;}
+  .covers-grid,.inc-row{grid-template-columns:1fr;}
+  .inc-cell{border-right:none;border-bottom:1px solid var(--border);}
+  .pages-table{overflow-x:auto;display:block;}
+  .lang-strip{flex-direction:column;}
+  footer{padding:28px 16px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-logos" style="display:flex;align-items:center;gap:14px;">
+    <img src="https://devphant.com/images/logo.png" alt="Devphant"/>
+    <span style="width:1px;height:20px;background:rgba(255,255,255,.15);"></span>
+    <img src="https://moodboardcompany.in/assets/images/Moodboard-Logo.png" alt="Mood Board" style="height:24px;filter:brightness(0) invert(1);" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#fff;">Mood Board</span>
+  </div>
+  <div class="topbar-right"><strong>Commercial Quotation</strong> &nbsp;·&nbsp; Devphant × Mood Board &nbsp;·&nbsp; June 2026</div>
+</div>
+
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="for-row">
+    <span class="for-label">Prepared for</span>
+    <span class="for-sep"></span>
+    <span class="client-name">Office of Fatehsinh ji Chauhan</span>
+  </div>
+  <div class="hero-badge"><span class="badge-dot"></span>Commercial Quotation</div>
+  <h1>A Personal Website, <span class="accent">Designed, Written & Built</span> as One Piece of Work</h1>
+  <p class="hero-tagline">This quotation covers the design, content writing and development of the site set out in the accompanying brief — one project, three pieces of work, delivered together so it reads as a single, considered whole.</p>
+  <p class="hero-url">www.fatehsinhchauhan.org</p>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-value"><em>₹</em>1,44,000</div><div class="stat-label">Total Investment</div></div>
+    <div class="stat-item"><div class="stat-value">4–5 <em style="font-size:14px;font-weight:400;">wks</em></div><div class="stat-label">Timeline</div></div>
+    <div class="stat-item"><div class="stat-value">Up to 10</div><div class="stat-label">Pages</div></div>
+    <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Languages</div></div>
+  </div>
+</div>
+
+<!-- WHAT THIS COVERS -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">I. What This Covers</div>
+    <h2 class="section-title animate delay-1">One Project, Three Pieces of Work</h2>
+    <p class="section-desc animate delay-2">Delivered together so the site reads as a single, considered whole — rather than a design handed to a separate writer and a separate builder.</p>
+    <div class="covers-grid">
+      <div class="covers-card animate delay-1">
+        <div class="covers-num">01</div>
+        <h3>Design</h3>
+        <p>The visual system and page layouts for all Phase 1 pages — palette, typography, photography treatment and templates, in the warm, editorial register set out in the brief.</p>
+      </div>
+      <div class="covers-card animate delay-2">
+        <div class="covers-num">02</div>
+        <h3>Content Writing</h3>
+        <p>Original copy for every page, researched from material you provide and written in the calm, third-person register appropriate to an institution builder's biography.</p>
+      </div>
+      <div class="covers-card animate delay-3">
+        <div class="covers-num">03</div>
+        <h3>Development</h3>
+        <p>The site built to the approved design, tested across phones, tablets and desktops, made ready to publish — in English, Hindi and Gujarati.</p>
+      </div>
+    </div>
+
+    <div class="lang-strip animate delay-4">
+      <div class="lang-pill"><span class="lang-flag">🇬🇧</span><div><div class="lang-name">English</div><div class="lang-native">Primary language</div></div></div>
+      <div class="lang-pill"><span class="lang-flag">🇮🇳</span><div><div class="lang-name">Hindi</div><div class="lang-native">हिन्दी</div></div></div>
+      <div class="lang-pill"><span class="lang-flag">🇮🇳</span><div><div class="lang-name">Gujarati</div><div class="lang-native">ગુજરાતી</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGES -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">II. Pages Covered in This Quotation</div>
+    <h2 class="section-title animate delay-1">Up to Ten Phase 1 Pages</h2>
+    <p class="section-desc animate delay-2">Recognition, Journal and Community & Events carry additional writing effort given their length and ongoing role. The scope allows for up to ten pages within Phase 1 without moving into a separate phase.</p>
+
+    <table class="pages-table animate delay-3">
+      <thead><tr><th style="width:220px;">Page</th><th>What's Delivered</th></tr></thead>
+      <tbody>
+        <tr><td class="page-name">Home</td><td class="page-desc">Hero, positioning line, pillar summary, activity strip</td></tr>
+        <tr><td class="page-name">About / Journey</td><td class="page-desc">Full chaptered biography across a multi-decade timeline</td></tr>
+        <tr><td class="page-name">Institutions (×4)</td><td class="page-desc">Trust, School, College, Legal Institute — one shared template</td></tr>
+        <tr><td class="page-name">Public Service</td><td class="page-desc">Civic roles and record</td></tr>
+        <tr><td class="page-name">Community & Events <span style="background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-size:9.5px;font-weight:700;font-family:'Space Grotesk',sans-serif;padding:2px 8px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase;margin-left:6px;">Dynamic</span></td><td class="page-desc">Card-grid gallery with launch entries — admin-manageable, add new entries anytime</td></tr>
+        <tr><td class="page-name">Recognition <span style="background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-size:9.5px;font-weight:700;font-family:'Space Grotesk',sans-serif;padding:2px 8px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase;margin-left:6px;">Dynamic</span></td><td class="page-desc">Dedicated page for awards and honours — admin-manageable, add new entries anytime</td></tr>
+        <tr><td class="page-name">Journal / Blog <span style="background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-size:9.5px;font-weight:700;font-family:'Space Grotesk',sans-serif;padding:2px 8px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase;margin-left:6px;">Dynamic</span></td><td class="page-desc">Dated listing with launch entries — admin-manageable, publish new posts anytime</td></tr>
+        <tr><td class="page-name">Contact</td><td class="page-desc">Institutional enquiry page</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">III. Investment</div>
+    <h2 class="section-title animate delay-1">A Single Fixed Fee</h2>
+    <p class="section-desc animate delay-2">For the full Phase 1 scope, broken down by the work it pays for.</p>
+
+    <div class="totals-box animate delay-3">
+      <div class="total-grand">
+        <div><span class="total-label-big">Phase 1 — Design, Content & Development</span><span class="excludes-note">Excludes hosting, domain and third-party service costs</span></div>
+        <span class="total-val-big"><em>₹</em>1,44,000</span>
+      </div>
+      <div class="bifurc-section">
+        <div class="bifurc-row"><div class="bifurc-left"><span class="bifurc-icon">🎨</span><div><div class="bifurc-name">Design</div><div class="bifurc-sub">Design system, photography treatment, all page templates, up to three review rounds</div></div></div><span class="bifurc-amt">₹25,000</span></div>
+        <div class="bifurc-div"></div>
+        <div class="bifurc-row"><div class="bifurc-left"><span class="bifurc-icon">✍️</span><div><div class="bifurc-name">Content Writing</div><div class="bifurc-sub">Research, first drafts and up to two revision rounds for all pages, in English, Hindi & Gujarati</div></div></div><span class="bifurc-amt">₹40,000</span></div>
+        <div class="bifurc-div"></div>
+        <div class="bifurc-row"><div class="bifurc-left"><span class="bifurc-icon">💻</span><div><div class="bifurc-name">Development</div><div class="bifurc-sub">Building the approved design and copy into a working, published, trilingual website</div></div></div><span class="bifurc-amt">₹65,000</span></div>
+        <div class="bifurc-div"></div>
+        <div class="bifurc-row"><div class="bifurc-left"><span class="bifurc-icon">🚀</span><div><div class="bifurc-name">Testing & Launch</div><div class="bifurc-sub">Cross-device checks, fixes, and handover at go-live</div></div></div><span class="bifurc-amt">₹14,000</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED / NOT INCLUDED -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">IV. Included & Not Included</div>
+    <h2 class="section-title animate delay-1">Scope Boundaries</h2>
+    <p class="section-desc animate delay-2">A clear breakdown of what's covered in this quotation and what falls outside it. Nothing from this brief has been deferred to a future phase — everything below is delivered as one complete scope.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.2);border-radius:14px;padding:24px;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--green);margin-bottom:16px;display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--green);"></span>Included</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:13px;">
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--green);flex-shrink:0;margin-top:1px;">✓</span> <div><strong style="color:var(--white);">Design & Copy — Up to 10 Pages</strong><br/>All pages, fully designed and written</div></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--green);flex-shrink:0;margin-top:1px;">✓</span> <div><strong style="color:var(--white);">Fully Built, Published Website</strong><br/>Ready to go live at launch</div></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--green);flex-shrink:0;margin-top:1px;">✓</span> <div><strong style="color:var(--white);">Trilingual — English, Hindi & Gujarati</strong><br/>Full site content in all three languages</div></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--green);flex-shrink:0;margin-top:1px;">✓</span> <div><strong style="color:var(--white);">Dynamic Sections</strong><br/>Journal/Blog, Community & Events, and Recognition — admin-manageable, publish new entries anytime</div></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--green);flex-shrink:0;margin-top:1px;">✓</span> <div><strong style="color:var(--white);">Responsive Layout</strong><br/>Phone, tablet and desktop</div></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--green);flex-shrink:0;margin-top:1px;">✓</span> <div><strong style="color:var(--white);">Review Rounds</strong><br/>Up to three design rounds, two content rounds</div></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--green);flex-shrink:0;margin-top:1px;">✓</span> <div><strong style="color:var(--white);">Cross-Device Testing</strong><br/>Before launch, across all target devices</div></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--green);flex-shrink:0;margin-top:1px;">✓</span> <div><strong style="color:var(--white);">15 Days Free Post-Launch Support</strong><br/>Bug fixes and minor issue resolution after go-live</div></li>
+        </ul>
+      </div>
+
+      <div style="background:rgba(248,113,113,.05);border:1px solid rgba(248,113,113,.2);border-radius:14px;padding:24px;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--red);margin-bottom:16px;display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);"></span>Not Included</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:13px;">
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--red);flex-shrink:0;margin-top:1px;">✗</span> <div><strong style="color:var(--white);">AWS Cloud Hosting Bill</strong><br/>Not covered in this quotation — included only under the optional AMC (see below)</div></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--red);flex-shrink:0;margin-top:1px;">✗</span> <div><strong style="color:var(--white);">Domain & 3rd Party Integration Fees</strong><br/>Any integrations (forms, analytics, etc.) billed as per actuals</div></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--red);flex-shrink:0;margin-top:1px;">✗</span> <div><strong style="color:var(--white);">Photography Production</strong><br/>Uses the existing archive; new shoots not included</div></li>
+          <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;"><span style="color:var(--red);flex-shrink:0;margin-top:1px;">✗</span> <div><strong style="color:var(--white);">Support Beyond 15 Days</strong><br/>Covered by the optional AMC — ₹12,000/month (see below)</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POST LAUNCH SUPPORT -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">Post-Launch Support</div>
+    <h2 class="section-title animate delay-1">15 Days Free, Then Optional AMC</h2>
+    <p class="section-desc animate delay-2">The first 15 days after go-live are covered at no charge — for bug fixes and initial handover support. After that, keeping the site technically healthy and up to date becomes an ongoing need, which is where the AMC comes in.</p>
+
+    <!-- How it works -->
+    <div style="background:var(--black-3);border:1px solid var(--border);border-radius:14px;padding:24px 26px;margin-bottom:20px;" class="animate delay-2">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--white);margin-bottom:14px;">How the AMC Works</div>
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:12px;">The website runs on AWS cloud infrastructure — this needs an active hosting bill, monitoring, and occasional technical attention to stay online and secure. The ₹12,000/month AMC is a single, simple plan that takes care of all of it, so the Office doesn't have to think about servers, bugs, or content updates separately.</p>
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.75;">Without the AMC, the AWS cloud bill and any technical maintenance become the client's own responsibility to arrange directly. With the AMC, Devphant × Mood Board handles all of it under one predictable monthly fee.</p>
+    </div>
+
+    <div style="background:var(--black-3);border:1px solid var(--blue-border);border-radius:16px;overflow:hidden;max-width:580px;" class="animate delay-3">
+      <div style="padding:24px 26px 20px;border-bottom:1px solid var(--border);">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">Optional · AMC</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:var(--white);letter-spacing:-1px;line-height:1;margin-bottom:4px;">₹12,000 <span style="font-size:13px;font-weight:400;color:var(--muted);">/ month</span></div>
+        <div style="font-size:12px;color:var(--muted);">Everything the site needs to stay live and current, in one fee</div>
+      </div>
+      <div style="padding:20px 26px;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="display:flex;gap:10px;font-size:13px;color:var(--muted);align-items:flex-start;line-height:1.5;"><span style="color:var(--blue);flex-shrink:0;margin-top:1px;">✓</span><div><strong style="color:var(--white);">AWS Cloud Bill — Covered</strong><br/>The monthly server/hosting cost is included in the ₹12,000, no separate invoice</div></li>
+          <li style="display:flex;gap:10px;font-size:13px;color:var(--muted);align-items:flex-start;line-height:1.5;"><span style="color:var(--blue);flex-shrink:0;margin-top:1px;">✓</span><div><strong style="color:var(--white);">Technical Handling</strong><br/>Bug fixes, uptime monitoring, and general site health</div></li>
+          <li style="display:flex;gap:10px;font-size:13px;color:var(--muted);align-items:flex-start;line-height:1.5;"><span style="color:var(--blue);flex-shrink:0;margin-top:1px;">✓</span><div><strong style="color:var(--white);">Minor Updates</strong><br/>Small copy or content edits, in English, Hindi & Gujarati</div></li>
+          <li style="display:flex;gap:10px;font-size:13px;color:var(--muted);align-items:flex-start;line-height:1.5;"><span style="color:var(--blue);flex-shrink:0;margin-top:1px;">✓</span><div><strong style="color:var(--white);">General Support</strong><br/>A direct line for anything the Office needs on the site, month to month</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section style="border-bottom:none;">
+  <div class="container">
+    <div class="eyebrow animate">V. Indicative Timeline</div>
+    <h2 class="section-title animate delay-1">4–5 Weeks From Kickoff</h2>
+    <p class="section-desc animate delay-2">Design and development run with a natural overlap — content writing happens alongside design, so the full site is delivered in 4–5 weeks rather than each phase stacking end to end.</p>
+
+    <div class="tl-wrap animate delay-3">
+      <div class="tl-item"><div class="tl-week">3 Weeks</div><div class="tl-title">🎨 Design — Including Discovery, Content Research & Writing</div></div>
+      <div class="tl-item"><div class="tl-week">3 Weeks</div><div class="tl-title">💻 Development — Trilingual Build, Overlapping With Design Handoff</div></div>
+      <div class="tl-item"><div class="tl-week">1 Week</div><div class="tl-title">🚀 Deployment & Go-Live — AWS Setup, Testing & Launch</div></div>
+    </div>
+
+    <div style="margin-top:16px;background:rgba(74,158,231,.06);border:1px solid var(--blue-border);border-radius:12px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;" class="animate">
+      <span style="font-size:18px;flex-shrink:0;">💡</span>
+      <p style="font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.65;">Design and development phases overlap for efficient delivery — overall completion in <strong style="color:var(--white);">4–5 weeks</strong> from kickoff, assuming source material is shared early and feedback stays within the review rounds above.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-glow"></div>
+  <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:16px;position:relative;">Let's Begin</div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,4.5vw,42px);font-weight:700;color:var(--white);letter-spacing:-1px;line-height:1.15;margin-bottom:12px;position:relative;">Ready to bring this<br/><span style="color:var(--blue);">website to life?</span></h2>
+  <p style="font-size:14px;color:var(--muted);max-width:420px;margin:0 auto 36px;line-height:1.7;position:relative;">Let's start with discovery and content gathering — the first step toward a site built as one considered whole.</p>
+  <button id="launch-btn" onclick="launchConfetti()" style="display:inline-flex;align-items:center;gap:14px;background:var(--blue);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;padding:16px 36px;border-radius:100px;border:none;cursor:pointer;transition:transform .2s;animation:pulse-ring 2.5s infinite;position:relative;z-index:2;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    <span style="width:32px;height:32px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;">▶</span>
+    Yes, Let's Begin
+  </button>
+  <div id="cta-after" style="display:none;margin-top:36px;">
+    <div style="font-size:28px;margin-bottom:10px;">🎉</div>
+    <div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:6px;">Wonderful. Let's talk.</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:20px;">We'll set up a discovery call to begin.</div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;">
+      <a href="mailto:info@devphant.com" style="display:inline-flex;align-items:center;gap:8px;background:var(--black-3);border:1px solid var(--blue-border);color:var(--white);font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:600;padding:11px 22px;border-radius:100px;text-decoration:none;">📧 &nbsp; info@devphant.com</a>
+      <a href="https://wa.me/919167366731" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);color:#25D366;font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:600;padding:11px 22px;border-radius:100px;text-decoration:none;">💬 &nbsp; WhatsApp Us</a>
+    </div>
+  </div>
+</div>
+<canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;display:none;"></canvas>
+
+<footer>
+  <div style="display:flex;align-items:center;justify-content:center;gap:16px;">
+    <img src="https://devphant.com/images/logo.png" alt="Devphant"/>
+    <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:300;color:rgba(255,255,255,.2);">×</span>
+    <img src="https://moodboardcompany.in/assets/images/Moodboard-Logo.png" alt="Mood Board" style="filter:brightness(0) invert(1);" onerror="this.style.display='none'"/>
+  </div>
+  <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.2);">A Devphant × Mood Board Partnership</div>
+  <div class="footer-div"></div>
+  <p>Prepared for <strong>Office of Fatehsinh ji Chauhan</strong> &nbsp;·&nbsp; info@devphant.com</p>
+  <p style="font-size:11px;color:rgba(255,255,255,.2);">Confidential · Valid 30 days from date of issue · June 2026</p>
+</footer>
+
+<script>
+function launchConfetti() {
+  const btn = document.getElementById('launch-btn');
+  const after = document.getElementById('cta-after');
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  btn.innerHTML = '🎉 &nbsp; Here We Go!';
+  btn.style.background = 'var(--green)'; btn.disabled = true; btn.style.cursor='default'; btn.style.animation='none';
+  setTimeout(() => { after.style.display = 'block'; }, 400);
+  canvas.style.display = 'block'; canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const colors = ['#4A9EE7','#34D399','#A78BFA','#FBBF24','#ffffff','#60A5FA'];
+  const particles = Array.from({length:180}, () => ({
+    x: Math.random()*canvas.width, y: -20-Math.random()*200, r: 4+Math.random()*8,
+    color: colors[Math.floor(Math.random()*colors.length)],
+    vx:(Math.random()-.5)*5, vy:2+Math.random()*5, angle:Math.random()*360, spin:(Math.random()-.5)*8,
+    opacity:1, wobble:Math.random()*Math.PI*2, wobbleSpeed:.05+Math.random()*.1
+  }));
+  let frame=0, animId;
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height); let alive=false;
+    particles.forEach(p=>{
+      if(p.y<canvas.height+20 && p.opacity>0){
+        alive=true; p.wobble+=p.wobbleSpeed; p.x+=p.vx+Math.sin(p.wobble)*1.2; p.y+=p.vy; p.angle+=p.spin; p.vy+=.08;
+        if(p.y>canvas.height*.7) p.opacity-=.018;
+        ctx.save(); ctx.globalAlpha=Math.max(0,p.opacity); ctx.fillStyle=p.color;
+        ctx.translate(p.x,p.y); ctx.rotate((p.angle*Math.PI)/180);
+        ctx.beginPath(); ctx.arc(0,0,p.r,0,Math.PI*2); ctx.fill(); ctx.restore();
+      }
+    });
+    frame++;
+    if(alive||frame<60) animId=requestAnimationFrame(draw);
+    else { canvas.style.display='none'; cancelAnimationFrame(animId); }
+  }
+  draw();
+}
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); observer.unobserve(el.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
